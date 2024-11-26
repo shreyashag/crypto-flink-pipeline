@@ -47,6 +47,9 @@ The application logs Bitcoin prices in the following format:
 2024-11-27 01:18:41,389 INFO  com.example.cryptoPipeline.BitcoinPriceLogger                [] - Bitcoin price: BitcoinPrice{USD=91799.5834, GBP=73219.0724, EUR=87710.0038}
 ```
 
+![Bitcoin Price Logger Screenshot](images/screenshot-readme.png)
+
+
 ---
 
 ## Project Structure
@@ -72,7 +75,3 @@ src/main/java/com/example/cryptoPipeline/
 
 - Add support for more cryptocurrencies.
 - Extend the application to write data to a database or a real-time dashboard.
-
----
-
-This project is designed to demonstrate proficiency in building streaming data applications with Apache Flink.
