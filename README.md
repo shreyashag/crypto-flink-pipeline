@@ -1,11 +1,12 @@
 # Bitcoin Price Logger
 
-This project is a **real-time cryptocurrency price logger** built using **Apache Flink**. It fetches live Bitcoin price data (in USD, GBP, and EUR) from the [CoinDesk API](https://api.coindesk.com/v1/bpi/currentprice.json) and logs the prices.
+This project is a **real-time cryptocurrency price logger** built using **Apache Flink**. It fetches live Bitcoin price data (in USD, GBP, and EUR) from the [CoinDesk API](https://api.coindesk.com/v1/bpi/currentprice.json) and logs the prices. **Now, it also supports creating pipelines for individual cryptocurrencies.**
 
 ## Features
 
 - Real-time data streaming using Apache Flink.
 - Fetches Bitcoin prices from the CoinDesk API.
+- **Supports creating pipelines for individual cryptocurrencies.**
 - Demonstrates the use of custom source functions and logging in Flink.
 
 ## Prerequisites
@@ -41,10 +42,11 @@ Deploy and run the Flink job:
 
 ### 4. Output
 
-The application logs Bitcoin prices in the following format:
+The application logs cryptocurrency prices in the following format:
 
 ```
-2024-11-27 01:18:41,389 INFO  com.example.cryptoPipeline.BitcoinPriceLogger                [] - Bitcoin price: BitcoinPrice{USD=91799.5834, GBP=73219.0724, EUR=87710.0038}
+2024-11-27 20:08:46,706 INFO  com.example.cryptoPipeline.CoinGeckoPriceSource              [] - Fetched prices: {bitcoin=CryptoPrice{coinId='bitcoin', price=94638.0, marketCap=1.8717394791857014E12, volume=8.524099652647296E10, change=1.915994061868203}}
+2024-11-27 20:08:46,706 INFO  com.example.cryptoPipeline.CoinGeckoPriceSource              [] - Fetched prices: {ethereum=CryptoPrice{coinId='ethereum', price=3488.05, marketCap=4.19972829695645E11, volume=4.146194274541337E10, change=4.92780046511994}}
 ```
 
 ![Bitcoin Price Logger Screenshot](images/screenshot-readme.png)
@@ -56,8 +58,15 @@ The application logs Bitcoin prices in the following format:
 
 ```
 src/main/java/com/example/cryptoPipeline/
-    |-- BitcoinPriceLogger.java    # Main application entry point
-    |-- BitcoinPrice.java          # POJO representing Bitcoin price data
+    |-- CryptoPriceLogger.java    # Main application entry point
+    |-- CryptoPrice.java          # POJO representing cryptocurrency price data
+    |-- CoinGeckoPriceSource.java  # Custom source for fetching cryptocurrency prices
+    |-- PriceLogSink.java          # Sink for logging cryptocurrency prices
+src/main/resources/
+    |-- log4j2.properties          # Logging configuration
+pom.xml                           # Maven project file
+README.md                         # Project documentation
+.gitignore                        # Git ignore file
 ```
 
 ## Highlights
