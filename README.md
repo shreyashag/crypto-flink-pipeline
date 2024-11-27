@@ -19,8 +19,8 @@ This project is a **real-time cryptocurrency price logger** built using **Apache
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/bitcoin-price-logger.git
-cd bitcoin-price-logger
+git clone https://github.com/shreyashag/crypto-flink-pipeline.git
+cd crypto-flink-pipeline.git
 ```
 
 ### 2. Build the Project
